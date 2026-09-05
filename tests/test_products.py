@@ -71,3 +71,9 @@ def test_sort_price_high_low(inventory_page):
 def test_logout(inventory_page):
     inventory_page.logout()
     assert "saucedemo.com" in inventory_page.driver.current_url
+
+@pytest.mark.regression
+def test_back_button_after_logout_does_not_bypass_login(inventory_page, driver):
+    inventory_page.logout()
+    driver.back()
+    assert "inventory.html" not in driver.current_url
