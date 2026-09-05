@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
+from pages.base_page import BasePage
 
-class CheckoutPage:
+class CheckoutPage(BasePage):
     FIRST_NAME = (By.ID, "first-name")
     LAST_NAME = (By.ID, "last-name")
     POSTAL_CODE = (By.ID, "postal-code")
@@ -9,20 +10,17 @@ class CheckoutPage:
     CONFIRMATION_HEADER = (By.CLASS_NAME, "complete-header")
     ERROR_MESSAGE = (By.CSS_SELECTOR, "[data-test='error']")
 
-    def __init__(self, driver):
-        self.driver = driver
-
     def fill_info(self, first_name, last_name, postal_code):
-        self.driver.find_element(*self.FIRST_NAME).send_keys(first_name)
-        self.driver.find_element(*self.LAST_NAME).send_keys(last_name)
-        self.driver.find_element(*self.POSTAL_CODE).send_keys(postal_code)
-        self.driver.find_element(*self.CONTINUE_BUTTON).click()
+        self.type_text(self.FIRST_NAME, first_name)
+        self.type_text(self.LAST_NAME, last_name)
+        self.type_text(self.POSTAL_CODE, postal_code)
+        self.click(self.CONTINUE_BUTTON)
 
     def finish_order(self):
-        self.driver.find_element(*self.FINISH_BUTTON).click()
+        self.click(self.FINISH_BUTTON)
 
     def get_confirmation_text(self):
-        return self.driver.find_element(*self.CONFIRMATION_HEADER).text
+        return self.get_text(self.CONFIRMATION_HEADER)
 
     def get_error_text(self):
-        return self.driver.find_element(*self.ERROR_MESSAGE).text
+        return self.get_text(self.ERROR_MESSAGE)
