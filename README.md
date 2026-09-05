@@ -56,7 +56,8 @@ saucedemo-tests/
 │ ├── report.html # generated on every run
 │ ├── screenshots/ # auto-captured on test failure
 │ └── logs/test_run.log # timestamped action log
-└── .github/workflows/ # CI config```
+└── .github/workflows/ # CI config
+```
 
 ## Setup
 
