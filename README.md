@@ -30,7 +30,7 @@ Both positive and negative paths are covered throughout, not just happy-path cli
 - **GitHub Actions** — CI runs the smoke suite on every push/PR
 
 ## Project structure
-
+'''
 saucedemo-tests/
 ├── conftest.py # driver fixture, screenshot-on-failure hook
 ├── pytest.ini # markers, addopts, pythonpath
@@ -56,7 +56,7 @@ saucedemo-tests/
 │ ├── report.html # generated on every run
 │ ├── screenshots/ # auto-captured on test failure
 │ └── logs/test_run.log # timestamped action log
-└── .github/workflows/ # CI config
+└── .github/workflows/ # CI config'''
 
 ## Setup
 
